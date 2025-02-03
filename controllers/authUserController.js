@@ -88,9 +88,9 @@ export const userSignup = async (req, res) => {
 export const verifyEmail = async (req, res) => {
   const { token } = req.body;
   try {
-   const { verificationToken } = req.body;
+  //  const { verificationToken } = req.body;
    const user = await User.findOne({
-     verificationToken,
+     verificationToken:token,
      verificationTokenExpiresAt: { $gt: Date.now() },
    });
 
